@@ -8,28 +8,24 @@ body {
     font-family: $fontBody;
     background-color: $bg;
     @include Font($f-s: $lg, $f-w: 400);
-    display: grid;
-    row-gap: 100px;
-    grid-template-areas:
-    "header"
-    "main"
-    "footer";
-    grid-template-rows: 775px auto auto;
-    grid-template-columns: 1fr;
-    .container {
-        padding: 0 24px;
-        max-width: 1140px;
-        margin: auto;
-        position: relative;
-    
-        @media (min-width: 481px) {
-            padding: 0;
-        }
-    }
 
-    ::selection{
+    ::selection {
         background-color: $secondary;
         color: #fff;
+    }
+}
+
+.container {
+    padding: 0 24px;
+    max-width: 1140px;
+    margin: auto;
+    position: relative;
+
+    @media (min-width: 480px) {
+        padding: 0 10px;
+    }
+    @media (min-width: 1200px) {
+        padding: 0;
     }
 }
 
@@ -42,7 +38,7 @@ h2 {
 }
 
 h3 {
-    font-size: $h3;    
+    font-size: $h3;
 }
 
 h4 {

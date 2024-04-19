@@ -1,11 +1,11 @@
-@mixin Flex ($d: null, $a-i: null, $j-c: null, $wrap: null, $g: null, $g-row: null, $g-column: null) {
-    display: $d;
+@mixin Flex ($a-i: null, $j-c: null, $wrap: null, $g: null, $r-g: null, $c-g: null) {
+    display: flex;
     align-items: $a-i;
     justify-content: $j-c;
     flex-wrap: $wrap;
     gap: $g;
-    column-gap: $g-column;
-    row-gap: $g-row;
+    column-gap: $c-g;
+    row-gap: $r-g;
 }
 
 @mixin Font ($f-s: null, $f-w: null, $l-h: null, $l-s: null) {

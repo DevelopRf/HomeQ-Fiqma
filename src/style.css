@@ -1,4 +1,4 @@
-.featured .cards .card .info .detail a, .headerBox .headerText .title .btnInquiry, .headerBox .wrapper .right .register .btnRegister, .featured .cards .card .info .sale, .featured .cards .card .info .rent {
+.featured .cards .card .info .detail a, .main-slogan .mainSlogan .title .btnInquiry, .headerBox .wrapper .right .register .btnRegister, .featured .cards .card .info .sale, .featured .cards .card .info .rent {
   display: inline-block;
   border-radius: 2px;
   color: #fff;
@@ -12,12 +12,22 @@
           user-select: none;
 }
 
-.featured .cards .card .cardImage img, main .slogan .cards .card .cardImage img, .headerBox .backgroundImage img {
+.featured .cards .card .cardImage img, .slogan .cards .card .cardImage img, .main-slogan .backgroundImage img {
   display: block;
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.headerBox .wrapper .btnToggle, .headerBox .wrapper .right .buy {
+  width: 40px;
+  height: 40px;
+  background-color: #66707A;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 * {
@@ -31,22 +41,6 @@ body {
   background-color: #fff;
   font-size: 14px;
   font-weight: 400;
-  display: grid;
-  row-gap: 100px;
-  grid-template-areas: "header" "main" "footer";
-  grid-template-rows: 775px auto auto;
-  grid-template-columns: 1fr;
-}
-body .container {
-  padding: 0 24px;
-  max-width: 1140px;
-  margin: auto;
-  position: relative;
-}
-@media (min-width: 481px) {
-  body .container {
-    padding: 0;
-  }
 }
 body ::-moz-selection {
   background-color: #DE8556;
@@ -55,6 +49,23 @@ body ::-moz-selection {
 body ::selection {
   background-color: #DE8556;
   color: #fff;
+}
+
+.container {
+  padding: 0 24px;
+  max-width: 1140px;
+  margin: auto;
+  position: relative;
+}
+@media (min-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    padding: 0;
+  }
 }
 
 h1 {
@@ -112,21 +123,12 @@ a {
   background-repeat: no-repeat;
   background-color: #123E56;
   grid-area: header;
-  position: relative;
-}
-.headerBox .backgroundImage {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 .headerBox .wrapper {
-  display: grid;
-  grid-template-columns: 85px auto max-content;
+  height: 100px;
+  display: flex;
   align-items: center;
-  -moz-column-gap: 79px;
-       column-gap: 79px;
-  padding: 32px 0 0;
+  justify-content: space-between;
 }
 .headerBox .wrapper a {
   color: #fff;
@@ -137,13 +139,38 @@ a {
 .headerBox .wrapper .logo span {
   color: #DE8556;
 }
-.headerBox .wrapper .navbar .menu {
-  display: grid;
-  grid-template-columns: repeat(6, max-content);
-  -moz-column-gap: 64px;
-       column-gap: 64px;
+.headerBox .wrapper .navbar {
+  display: none;
 }
-.headerBox .wrapper .navbar .menu i {
+@media (min-width: 768px) {
+  .headerBox .wrapper .navbar {
+    display: block;
+  }
+}
+.headerBox .wrapper .navbar .menu {
+  display: flex;
+  align-items: baseline;
+  -moz-column-gap: 28px;
+       column-gap: 28px;
+  padding: 0 12px;
+}
+@media (min-width: 992px) {
+  .headerBox .wrapper .navbar .menu {
+    -moz-column-gap: 44px;
+         column-gap: 44px;
+  }
+}
+@media (min-width: 1200px) {
+  .headerBox .wrapper .navbar .menu {
+    -moz-column-gap: 64px;
+         column-gap: 64px;
+  }
+}
+.headerBox .wrapper .navbar .menu a {
+  padding: 11px 0;
+  display: block;
+}
+.headerBox .wrapper .navbar .menu a i {
   padding: 0 0 0 8px;
   font-size: 16px;
 }
@@ -151,107 +178,127 @@ a {
   display: none;
 }
 .headerBox .wrapper .right {
-  display: grid;
-  grid-template-columns: 40px auto auto;
-  -moz-column-gap: 24px;
-       column-gap: 24px;
-  align-items: center;
-  justify-self: end;
-}
-.headerBox .wrapper .right .buy, .headerBox .wrapper .right .btnToggle {
-  width: 40px;
-  height: 40px;
-  background-color: #66707A;
-  border-radius: 50%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-}
-.headerBox .wrapper .right .btnToggle {
-  cursor: pointer;
   display: none;
 }
-.headerBox .wrapper .right .btnToggle .icon {
+@media (min-width: 768px) {
+  .headerBox .wrapper .right {
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+  }
+}
+@media (min-width: 1024px) {
+  .headerBox .wrapper .right {
+    padding: 0 0 0 50px;
+  }
+}
+.headerBox .wrapper .right .register .btnRegister {
+  padding: 12px 18px;
+  background-color: #DE8556;
+  font-weight: 600;
+}
+@media (min-width: 992px) {
+  .headerBox .wrapper .right .register .btnRegister {
+    padding: 12px 28px;
+  }
+}
+.headerBox .wrapper .btnToggle {
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .headerBox .wrapper .btnToggle {
+    display: none;
+  }
+}
+.headerBox .wrapper .btnToggle .icon {
   width: 16px;
   height: 10px;
   position: relative;
 }
-.headerBox .wrapper .right .btnToggle .icon span {
+.headerBox .wrapper .btnToggle .icon span {
   position: absolute;
   display: block;
   right: 0;
   border-top: 2px solid #fff;
   transition: all 0.5s;
 }
-.headerBox .wrapper .right .btnToggle .icon span:first-of-type {
+.headerBox .wrapper .btnToggle .icon span:first-of-type {
   width: 16px;
   top: 0;
 }
-.headerBox .wrapper .right .btnToggle .icon span:nth-of-type(2) {
+.headerBox .wrapper .btnToggle .icon span:nth-of-type(2) {
   width: 12px;
   top: 50%;
   transform: translateY(-50%);
 }
-.headerBox .wrapper .right .btnToggle .icon span:nth-of-type(2).active {
+.headerBox .wrapper .btnToggle .icon span:nth-of-type(2).active {
   transform: translate(-4px, -50%);
 }
-.headerBox .wrapper .right .btnToggle .icon span:last-of-type {
+.headerBox .wrapper .btnToggle .icon span:last-of-type {
   width: 8px;
   bottom: 0;
 }
-.headerBox .wrapper .right .btnToggle .icon span:last-of-type.active {
+.headerBox .wrapper .btnToggle .icon span:last-of-type.active {
   transform: translateX(-8px);
 }
-.headerBox .wrapper .right .register .btnRegister {
-  padding: 12px 28px;
-  background-color: #DE8556;
-  font-weight: 600;
+
+.main-slogan {
+  height: 675px;
+  background-color: #123E56;
+  position: relative;
 }
-.headerBox .headerText {
+.main-slogan .backgroundImage {
+  display: none;
   position: absolute;
-  top: 214px;
+  bottom: 0;
+  right: 0;
+}
+.main-slogan .mainSlogan {
+  position: absolute;
+  top: 114px;
   left: 0;
   color: #fff;
 }
-.headerBox .headerText .title h1 {
+.main-slogan .mainSlogan .title h1 {
   position: relative;
   max-width: 493px;
   line-height: 64.57px;
 }
-.headerBox .headerText .title h1 img {
+.main-slogan .mainSlogan .title h1 img {
   position: absolute;
   right: 90px;
   top: 100%;
 }
-.headerBox .headerText .title p {
+.main-slogan .mainSlogan .title p {
   max-width: 465px;
   margin: 24px 0 0;
   line-height: 24px;
 }
-.headerBox .headerText .title .btnInquiry {
+.main-slogan .mainSlogan .title .btnInquiry {
   padding: 18px 32px;
   margin: 32px 0 64px;
   background-color: #DE8556;
 }
-.headerBox .headerText > span {
+.main-slogan .mainSlogan > span {
   display: inline-block;
   width: 475px;
   border-top: 1px solid #66707A;
 }
-.headerBox .headerText .counter {
+.main-slogan .mainSlogan .counter {
   margin: 64px 0 0;
 }
-.headerBox .headerText .counter ul {
+.main-slogan .mainSlogan .counter ul {
   display: grid;
   grid-template-columns: repeat(3, max-content);
   -moz-column-gap: 59px;
        column-gap: 59px;
   row-gap: 32px;
 }
-.headerBox .headerText .counter ul li {
+.main-slogan .mainSlogan .counter ul li {
   font-size: 12px;
 }
-.headerBox .headerText .counter ul li span {
+.main-slogan .mainSlogan .counter ul li span {
   display: block;
   margin: 0 0 13px;
   font-size: 28px;
@@ -259,42 +306,30 @@ a {
   line-height: 32.28px;
 }
 
-main {
-  grid-area: main;
-}
-main .slogan .cards {
+.slogan .cards {
   max-width: 1115px;
-  display: grid;
-  grid-template-columns: 1fr;
-  -moz-column-gap: 88px;
-       column-gap: 88px;
 }
-@media (min-width: 769px) {
-  main .slogan .cards {
-    grid-template-columns: max-content minmax(329px, auto);
-  }
-}
-main .slogan .cards .card {
+.slogan .cards .card {
   padding: 8px;
 }
-main .slogan .cards .card .cardImage {
+.slogan .cards .card .cardImage {
   max-width: 431px;
 }
-main .slogan .cards .card .content {
+.slogan .cards .card .content {
   max-width: 580px;
   /*  @media (min-width: 769px)
-  {
-      padding: ;
-  } */
+      {
+          padding: ;
+      } */
 }
-main .slogan .cards .card .content .title {
+.slogan .cards .card .content .title {
   max-width: 533px;
 }
-main .slogan .cards .card .content .text p {
+.slogan .cards .card .content .text p {
   font-size: 14px;
   line-height: 24px;
 }
-main .slogan .cards .card .content .text p:not(:last-of-type) {
+.slogan .cards .card .content .text p:not(:last-of-type) {
   margin: 0 0 30px 0;
 }
 
@@ -326,6 +361,7 @@ main .slogan .cards .card .content .text p:not(:last-of-type) {
 }
 @media (min-width: 481px) {
   .featured .cards {
+    display: flex;
     gap: 0;
     row-gap: 14px;
     justify-content: space-between;

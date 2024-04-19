@@ -3,25 +3,10 @@
     background-repeat: no-repeat;
     background-color: $primary;
     grid-area: header;
-    position: relative;
-
-    .backgroundImage {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        img {
-            @extend %img;
-        }
-    }
 
     .wrapper {
-        display: grid;
-        grid-template-columns: 85px auto max-content;
-        align-items: center;
-        column-gap: 79px;
-        padding: 32px 0 0;
+        height: 100px;
+        @include Flex($j-c: space-between, $a-i: center);
 
         a {
             color: #fff;
@@ -36,14 +21,31 @@
         }
 
         .navbar {
+            display: none;
+            @media (min-width: 768px) {
+                display: block;
+            }
             .menu {
-                display: grid;
-                grid-template-columns: repeat(6, max-content);
-                column-gap: 64px;
+                @include Flex($c-g: 28px, $a-i: baseline);
 
-                i {
-                    padding: 0 0 0 8px;
-                    font-size: 16px;
+                @media (min-width: 992px) {
+                    column-gap: 44px;
+                }
+
+                @media (min-width: 1200px) {
+                    column-gap: 64px;
+                }
+
+                padding: 0 12px;
+
+                a {
+                    padding: 11px 0;
+                    display: block;
+
+                    i {
+                        padding: 0 0 0 8px;
+                        font-size: 16px;
+                    }
                 }
 
                 .subMenu {
@@ -53,142 +55,83 @@
         }
 
         .right {
-            display: grid;
-            grid-template-columns: 40px auto auto;
-            column-gap: 24px;
-            align-items: center;
-            justify-self: end;
+            display: none;
 
-            .buy {
-                width: 40px;
-                height: 40px;
-                background-color: $grey80;
-                border-radius: 50%;
-                display: grid;
-                justify-items: center;
-                align-items: center;
-
-                svg {}
+            @media (min-width: 768px) {
+                @include Flex($c-g: 24px, $a-i: center);
             }
 
-            .btnToggle {
-                @extend .buy;
-                cursor: pointer;
-                display: none;
+            @media (min-width: 1024px) {
+                padding: 0 0 0 50px;
+            }
 
-                .icon {
-                    width: 16px;
-                    height: 10px;
-                    position: relative;
-
-                    span {
-                        position: absolute;
-                        display: block;
-                        right: 0;
-                        border-top: 2px solid #fff;
-                        transition: all 0.5s;
-
-                        &:first-of-type {
-                            width: 16px;
-                            top: 0;
-
-                        }
-
-                        &:nth-of-type(2) {
-                            width: 12px;
-                            top: 50%;
-                            transform: translateY(-50%);
-
-                            &.active {
-                                transform: translate(-4px, -50%);
-                            }
-                        }
-
-                        &:last-of-type {
-                            width: 8px;
-                            bottom: 0;
-
-                            &.active {
-                                transform: translateX(-8px);
-                            }
-                        }
-                    }
-
-                }
+            .buy {
+                @extend %circle-btn;
             }
 
             .register {
                 .btnRegister {
                     @extend %btn;
-                    padding: 12px 28px;
+                    padding: 12px 18px;
                     background-color: $secondary;
                     font-weight: 600;
-                }
-            }
 
-        }
-    }
-
-    .headerText {
-
-        position: absolute;
-        top: 214px;
-        left: 0;
-        color: #fff;
-
-        .title {
-            h1 {
-                position: relative;
-                max-width: 493px;
-                line-height: 64.57px;
-
-                img {
-                    position: absolute;
-                    right: 90px;
-                    top: 100%;
-
-                }
-            }
-
-            p {
-                max-width: 465px;
-                margin: 24px 0 0;
-                line-height: 24px;
-            }
-
-            .btnInquiry {
-                @extend %btn;
-                padding: 18px 32px;
-                margin: 32px 0 64px;
-                background-color: $secondary;
-            }
-        }
-
-        >span {
-            display: inline-block;
-            width: 475px;
-            border-top: 1px solid $grey80;
-        }
-
-        .counter {
-            margin: 64px 0 0;
-
-            ul {
-                display: grid;
-                grid-template-columns: repeat(3, max-content);
-                column-gap: 59px;
-                row-gap: 32px;
-
-                li {
-                    font-size: 12px;
-
-                    span {
-                        display: block;
-                        margin: 0 0 13px;
-                        @include Font($f-s: 28px, $l-h: 32.28px, $f-w: 700)
+                    @media (min-width: 992px) {
+                        padding: 12px 28px;
                     }
                 }
             }
+
         }
+
+        .btnToggle {
+            @extend %circle-btn;
+            cursor: pointer;
+
+            @media (min-width: 768px) {
+                display: none;
+            }
+
+            .icon {
+                width: 16px;
+                height: 10px;
+                position: relative;
+
+                span {
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    border-top: 2px solid #fff;
+                    transition: all 0.5s;
+
+                    &:first-of-type {
+                        width: 16px;
+                        top: 0;
+
+                    }
+
+                    &:nth-of-type(2) {
+                        width: 12px;
+                        top: 50%;
+                        transform: translateY(-50%);
+
+                        &.active {
+                            transform: translate(-4px, -50%);
+                        }
+                    }
+
+                    &:last-of-type {
+                        width: 8px;
+                        bottom: 0;
+
+                        &.active {
+                            transform: translateX(-8px);
+                        }
+                    }
+                }
+
+            }
+        }
+
     }
 }
