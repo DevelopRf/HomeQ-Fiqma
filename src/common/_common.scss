@@ -1,0 +1,87 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fontBody;
+    background-color: $bg;
+    @include Font($f-s: $lg, $f-w: 400);
+    display: grid;
+    row-gap: 100px;
+    grid-template-areas:
+    "header"
+    "main"
+    "footer";
+    grid-template-rows: 775px auto auto;
+    grid-template-columns: 1fr;
+    .container {
+        padding: 0 24px;
+        max-width: 1140px;
+        margin: auto;
+        position: relative;
+    
+        @media (min-width: 481px) {
+            padding: 0;
+        }
+    }
+
+    ::selection{
+        background-color: $secondary;
+        color: #fff;
+    }
+}
+
+h1 {
+    font-size: $h1;
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;    
+}
+
+h4 {
+    font-size: $h4;
+}
+
+h5 {
+    font-size: $h5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $fontHeading;
+    font-weight: 400;
+}
+
+h2 {
+    line-height: 54px;
+}
+
+h3 {
+    line-height: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+@font-face {
+    font-family: 'Khmer MN';
+    src: url('../src/fonts/Khmer_MN.ttc');
+}

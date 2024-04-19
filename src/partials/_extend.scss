@@ -1,0 +1,19 @@
+%btn {
+    display: inline-block;
+    border-radius: 2px;
+    color: #fff;
+}
+
+%secondBtn {
+    display: inline-block;
+    @extend %btn;    
+    padding: 4px 12px;
+    user-select: none;
+}
+
+%img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,270 @@
+main {
+    grid-area: main;
+
+    .slogan {
+        .cards {
+            max-width: 1115px;
+            display: grid;
+            grid-template-columns: 1fr;
+            column-gap: 88px;
+
+            @media (min-width: 769px) {
+                grid-template-columns: max-content minmax(329px, auto);
+            }
+
+            .card {
+                padding: 8px;
+
+                .cardImage {
+                    max-width: 431px;
+
+                    img {
+                        @extend %img;
+                    }
+                }
+
+                .content {
+                    max-width: 580px;
+
+                    /*  @media (min-width: 769px)
+                    {
+                        padding: ;
+                    } */
+                    .title {
+                        max-width: 533px;
+                    }
+
+                    .text {
+                        p {
+                            @include Font ($f-s: $lg, $l-h: 24px);
+
+                            &:not(:last-of-type) {
+                                margin: 0 0 30px 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+.featured {
+    margin: 64px 0;
+
+    .title {
+        @include Flex($d: flex, $a-i: center, $j-c: space-between);
+        margin: 0 0 27px;
+
+        h3 {
+            font-size: 30px;
+        }
+
+        a {
+            display: none;
+            color: $primary;
+
+            @media (min-width: 769px) {
+                display: inline-block;
+            }
+        }
+    }
+
+    .cards {
+        @include Flex ($d: flex, $g: 24px, $wrap: wrap);
+
+
+        @media (min-width: 481px) {
+            @include Flex ($g: 0, $g-row: 14px);
+            justify-content: space-between;
+
+        }
+
+        .card {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #0000001c;
+            border-radius: 12px;
+
+            @media (min-width: 481px) {
+                width: 48.5%;
+            }
+
+            @media (min-width: 769px) {
+                width: 32%;
+            }
+
+
+            .cardImage {
+                position: relative;
+                border-radius: 12px;
+                overflow: hidden;
+
+                .favorites {
+                    @include Flex($d: flex, $a-i: center, $j-c: center);
+                    width: 40px;
+                    height: 40px;
+                    background-color: #ffffffbd;
+                    cursor: pointer;
+                    border-radius: 12px;
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+
+                    .heartIcon {
+                        width: 24px;
+                        height: 24px;
+
+                        path {
+                            &.red {
+                                fill-opacity: 1;
+                                fill: #E94562;
+                            }
+                        }
+
+                    }
+                }
+
+                img {
+                    @extend %img;
+                }
+            }
+
+            .info {
+                padding: 16px;
+
+                .rent {
+                    @extend %secondBtn;
+                    background-color: $pending;
+                    color: $secondary;
+                }
+
+                .sale {
+                    @extend %secondBtn;
+                    background-color: $successLight;
+                    color: $success;
+                }
+
+                h4 {
+                    margin: 16px 0;
+
+                    a {
+                        color: $grey100;
+                        font-family: 'Khmer MN';
+                        line-height: 43.51px;
+                        transition: all 0.3s;
+
+                        &:hover {
+                            color: $secondary;
+                        }
+                    }
+                }
+
+                .location {
+                    @include Flex($d: flex, $a-i: center, $g: 7px);
+
+                    p {
+                        color: $grey80;
+                    }
+                }
+
+                ul {
+                    display: flex;
+                    margin: 22px 0;
+
+                    li {
+                        user-select: none;
+                        font-size: 12px;
+                        color: $grey100;
+
+                        svg {
+                            width: 14px;
+                            height: 14px;
+                            margin: 0 8px 0 0;
+
+                            @media (min-width: 481px) and (max-width: 768px) {
+                                margin: 0 3px 0 0;
+                            }
+                        }
+
+                        &:not(:last-of-type) {
+                            margin: 0 25px 0 0;
+
+                            @media (min-width: 481px) and (max-width: 768px) {
+                                margin: 0 7px 0 0;
+                            }
+                        }
+                    }
+                }
+
+                .detail {
+                    @include Flex ($d: flex, $a-i: center, $j-c: space-between);
+
+                    p {
+                        @include Font ($f-s: 20px, $f-w: 600);
+                        color: $secondary;
+                        user-select: none;
+
+
+                        span {
+                            font-size: $sm;
+                            color: $grey70;
+
+                            @media (min-width: 481px) and (max-width: 768px) {
+
+                                font-size: 10px;
+                            }
+                        }
+
+                        @media (min-width: 481px) and (max-width: 768px) {
+
+                            font-size: 16px;
+                        }
+
+                    }
+
+                    a {
+                        @extend %btn;
+                        text-align: center;
+                        padding: 12px 28px;
+                        background-color: #fff;
+                        color: $secondary;
+                        border: 1px solid $secondary;
+                        transition: all 0.3s;
+
+                        &:hover {
+                            background-color: $secondary;
+                            border-color: $secondary;
+                            color: #fff;
+                        }
+
+                        @media (min-width: 481px) and (max-width: 768px) {
+                            padding: 8px 10px;
+                            font-size: 12px;
+                        }
+
+                        @media (min-width: 769px) and (max-width: 1024px) {
+                            padding: 8px 20px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .seeMob {
+        text-align: center;
+        margin: 32px 0 0;
+
+        a {
+            color: $primary;
+        }
+
+        @media (min-width: 769px) {
+            display: none;
+        }
+    }
+}
