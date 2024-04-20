@@ -1,4 +1,4 @@
-@mixin Flex ($a-i: null, $j-c: null, $wrap: null, $g: null, $r-g: null, $c-g: null) {
+@mixin Flex ($a-i: null, $j-c: null, $wrap: null, $g: null, $r-g: null, $c-g: null, $f-d: null) {
     display: flex;
     align-items: $a-i;
     justify-content: $j-c;
@@ -6,6 +6,7 @@
     gap: $g;
     column-gap: $c-g;
     row-gap: $r-g;
+    flex-direction: $f-d;
 }
 
 @mixin Font ($f-s: null, $f-w: null, $l-h: null, $l-s: null) {
